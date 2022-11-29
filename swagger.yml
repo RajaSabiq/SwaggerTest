@@ -1,0 +1,145 @@
+openapi: 3.0.0
+info:
+  title: Gamification
+  version: 1.0.0
+servers:
+  - url: http://localhost:4000
+paths:
+  /admin/gamification:
+    get:
+      tags:
+        - default
+      summary: GetAllGamification
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - default
+      summary: CreateTemplate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: Testing Templatess
+                createdBy: '12'
+                attributes:
+                  loginTime: 3h
+                  loginCount: '6'
+                  unavailableTime: 30m
+                  unavailableCount: '5'
+                  breakTime: 1h 30m
+                  breakCount: '5'
+                  firstResponseTime:
+                    - channel: sms
+                      value: '10'
+                  responseTime:
+                    - channel: call
+                      value: '15'
+                  maxInteractionTime:
+                    - channel: sms
+                      value: 1h 5m
+                  totalOutbound:
+                    - channel: sms
+                      value: 1h 5m
+                  manualOutTime:
+                    - channel: sms
+                      value: 1h 5m
+                  manualOutCount:
+                    - channel: sms
+                      value: 1h 5m
+                  holdTime:
+                    - channel: sms
+                      value: 1h 5m
+                channelQueue: []
+                isDeleted: false
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/gamification/63848fbbe4c34075d2d2a86c:
+    put:
+      tags:
+        - default
+      summary: updateGamification
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                attributes:
+                  loginTime: 3h
+                  loginCount: '6'
+                  unavailableTime: 30m
+                  unavailableCount: '5'
+                  breakTime: 1h 30m
+                  breakCount: '5'
+                  firstResponseTime:
+                    - channel: sms
+                      value: '10'
+                      _id: 63848fbbe4c34075d2d2a86d
+                  responseTime:
+                    - channel: call
+                      value: '155555555555555555'
+                      _id: 63848fbbe4c34075d2d2a86e
+                  maxInteractionTime:
+                    - channel: sms
+                      value: 1h 5m
+                      _id: 63848fbbe4c34075d2d2a86f
+                  totalOutbound:
+                    - channel: sms
+                      value: 1h 5m
+                      _id: 63848fbbe4c34075d2d2a870
+                  manualOutTime:
+                    - channel: sms
+                      value: 1h 5m
+                      _id: 63848fbbe4c34075d2d2a871
+                  manualOutCount:
+                    - channel: sms
+                      value: 1h 5m
+                      _id: 63848fbbe4c34075d2d2a872
+                  holdTime:
+                    - channel: sms
+                      value: 1h 5m
+                      _id: 63848fbbe4c34075d2d2a873
+                  ringNoAnswer: '10'
+                  ringTime: '100'
+                name: Testing Templates
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - default
+      summary: Delete
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /admin/gamification/association/6384bc4abc29d38e1f2d2e58:
+    put:
+      tags:
+        - default
+      summary: toggle association
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                channel: whatsapp
+                queue: default
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
